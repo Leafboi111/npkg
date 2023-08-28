@@ -29,7 +29,7 @@ function execute {
 
 function search {
     read -p "Package to search:" pkgls
-    grep -i $pkgls src.txt
+    grep -i $pkgls repos.txt
 }
 
 function remove {
