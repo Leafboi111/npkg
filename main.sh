@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Copyright (C) <year>  <name of author>
+Copyright (C) 2023 Leafboi
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -27,18 +27,25 @@ function execute {
     bash pkgs/$pkgrun/main.sh
 }
 
+function search {
+    read -p "Package to search:" pkgls
+    grep -i $pkgls src.txt
+}
+
 function remove {
     read -p "Package to remove: " pkgrun
     rm -rf pkgs/$pkgrun
 }
 
 function main {
-    read -p "Install, execute, or remove package [i/e/r]: " sq
+    read -p "Install, execute, search, or remove package [i/e/s/r]: " sq
 
     case $sq in
         [iI] ) install;;
             #break;;
         [eE] ) execute;;
+            #break;;
+        [sS] ) search;;
             #break;;
         [rR] ) remove;;
             #break;;
